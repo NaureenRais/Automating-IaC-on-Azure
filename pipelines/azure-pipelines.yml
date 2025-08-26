@@ -7,6 +7,10 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
+- task: TerraformTask@5
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
   TF_VERSION: '1.6.0'
 
 steps:
