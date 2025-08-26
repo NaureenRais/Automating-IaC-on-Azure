@@ -1,0 +1,37 @@
+trigger:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  TF_VERSION: '1.6.0'
+
+steps:
+- task: TerraformInstaller@0
+  inputs:
+    terraformVersion: $(TF_VERSION)
+
+- task: TerraformCLI@0
+  inputs:
+    provider: 'azurerm'
+    command: 'init'
+    workingDirectory: 'infra'
+    backendServiceArm: 'iac-connection'
+
+- task: TerraformCLI@0
+  inputs:
+    provider: 'azurerm'
+    command: 'plan'
+    workingDirectory: 'infra'
+    environmentServiceNameAzureRM: 'iac-connection'
+
+- task: TerraformCLI@0
+  inputs:
+    provider: 'azurerm'
+    command: 'apply'
+    workingDirectory: 'infra'
+    environmentServiceNameAzureRM: 'iac-connection'
+    args: '-auto-approve'
