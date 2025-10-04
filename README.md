@@ -32,10 +32,10 @@ azure-iac-automation/
 │   └── provider.tf
 ├── pipelines/
 │   ├── azure-pipelines.yaml
-│   
 ├── scripts/
 │   └── create-service-connection.sh
 ├── README.md
+├── Structural_Diagram_IaC.jpeg
 \`\`\`
 
 ---
@@ -90,7 +90,7 @@ azure-iac-automation/
 1. Push repo to GitHub:
 \`\`\`bash
 # Clone the repo
-git clone https://github.com/NaureenRais/azure-iac-automation.git
+git clone https://github.com/NaureenRais/Automating-IaC-on-Azure.git
 cd azure-iac-automation
 cp -r ../azure-iac-automation/* .
 git add .
@@ -111,7 +111,7 @@ terraform apply -var-file="env/dev.tfvars"
 
 2. Run the service connection script:
 ```bash
-./scripts/create-service-connection.sh <ORG_URL> <PROJECT_NAME> <SUBSCRIPTION_ID> <SUBSCRIPTION_NAME> <TENANT_ID> <APP_ID> <APP_SECRET>
+./scripts/create-service-connection.sh <ORG_NAME> <PROJECT_NAME> <SUBSCRIPTION_ID> <SUBSCRIPTION_NAME> <TENANT_ID> <APP_ID> <APP_SECRET>
 ```
 
 3. In Azure DevOps → Pipelines → New Pipeline → GitHub → Select repo.
