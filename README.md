@@ -90,7 +90,7 @@ azure-iac-automation/
 1. Push repo to GitHub:
 \`\`\`bash
 # Clone the repo
-git clone https://github.com/NaureenRais/Automating-IaC-on-Azure.git
+git clone https://github.com/NaureenRais/azure-iac-devops-automation.git
 cd azure-iac-automation
 cp -r ../azure-iac-automation/* .
 git add .
